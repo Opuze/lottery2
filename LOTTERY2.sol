@@ -58,7 +58,7 @@ function getPlayers() public view returns(address payable[] memory){
              return uint(keccak256(abi.encode(block.difficulty,block.timestamp,admin)));
 
          }
-         function pickwinner() internal{
+         function pickwinner() pubic onlyAdmin{
              uint win = random() % players.length;
              players[win].transfer(address(this).balance);
 
